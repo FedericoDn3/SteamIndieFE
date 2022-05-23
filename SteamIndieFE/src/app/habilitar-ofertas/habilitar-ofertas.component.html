@@ -1,0 +1,44 @@
+<form class="parent">
+    <mat-card style="min-width: 700px;">
+        <mat-card-header>
+            <h1>Ofertar</h1>
+        </mat-card-header>
+        <mat-card-content>
+            <form class="example-form">
+                <mat-form-field appearance="fill">
+                    <mat-label>Oferta</mat-label>
+                    <mat-select [(value)]="Oferta">
+                        <mat-option *ngFor="let Oferta of Ofertas" (value)="Oferta">{{Oferta.Nombre}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </form>
+            <mat-divider></mat-divider>
+            <mat-grid-list cols="2">
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <div>
+                        <mat-list role="list">
+                            <mat-label>MisJuegos</mat-label>
+                            <mat-list-item role="listitem"  *ngFor="let Juego of MisJuegos" (click)="Agregar(Juego)">
+                                <h3>{{ Juego.Nombre }}</h3>
+                            </mat-list-item>
+                        </mat-list>
+                    </div>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <div>
+                        <mat-label>Juegos de la oferta</mat-label>
+                        <mat-list role="list">
+                            <mat-list-item role="listitem"  *ngFor="let Juego of OfertaJuegos" (click)="Quitar(Juego)">
+                                <h3>{{ Juego.Nombre }}</h3>
+                            </mat-list-item>
+                        </mat-list>
+                    </div>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </mat-card-content>
+        <mat-card-actions>
+            <button (click)="Mandar()">Mandar</button>
+        </mat-card-actions>
+    </mat-card>
+</form>
+  

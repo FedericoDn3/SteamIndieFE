@@ -1,0 +1,23 @@
+<div class="parent">
+    <mat-card *ngIf="Perfil" style="max-width: 600px; min-width: 600px;">
+        <h1>Mi cuenta:</h1>
+        <mat-divider></mat-divider>
+        <img mat-card-image style="max-width: 380px; max-height: 250px;" [src]="Perfil.img">
+        <mat-card-content>
+            <h3>Email: {{Perfil.email}}</h3>
+            <h3>Nombre del usuario: {{Perfil.nom}}</h3>
+            <h3>Nick: {{Perfil.nick}}</h3>
+            <h3>Saldo: ${{Perfil.billetera.saldo}}</h3>
+        </mat-card-content>
+        <mat-card-actions>
+        <mat-divider></mat-divider>
+        </mat-card-actions>
+        <button routerLink="/billetera">
+            Cargar Saldo
+        </button>
+        <!-- <button routerLink="/PublicarJuegoComponent">
+            Publicar Juego
+        </button> -->
+    </mat-card>
+</div>
+<app-estados [idPerfil]="id" [propio]="true"></app-estados>

@@ -1,0 +1,11 @@
+
+
+.example-spacer {
+    flex: 1 1 auto;
+    /* width: max-content; */
+  }
+
+  /*.container {
+    background: rgb(103, 165, 206);
+    width: max-content;
+  }*/

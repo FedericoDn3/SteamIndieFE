@@ -1,0 +1,56 @@
+<form class="parent">
+    <mat-card style="min-width: 700px;">
+      <mat-card-header>
+        <h1>Crear oferta</h1>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-divider></mat-divider>
+        <mat-grid-list cols="2" rowHeight="100px">
+          <mat-grid-tile
+            [colspan]="1"
+            [rowspan]="1">
+            <mat-form-field appearance="fill">
+              <mat-label>Nombre</mat-label>
+              <input matInput [(ngModel)]="Oferta.nominstof" name="Nombre">
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile
+            [colspan]="1"
+            [rowspan]="1">
+            <div style="max-width: fit-content;">
+              <mat-form-field appearance="fill">
+                <mat-label>Descuento(%)</mat-label>
+                <input matInput [(ngModel)]="Oferta.porcentof" name="porentaje">
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+        </mat-grid-list>
+         <mat-grid-list cols="2" rowHeight="100px">
+          <mat-grid-tile
+            [colspan]="1"
+            [rowspan]="1">
+            <mat-form-field>
+              <mat-label>Fecha de inicio</mat-label>
+              <input matInput [matDatepicker]="picker" [(ngModel)]="Oferta.finiof" name="inicio">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile
+            [colspan]="1"
+            [rowspan]="1">
+            <mat-form-field>
+              <mat-label>Fecha de fin</mat-label>
+              <input matInput [matDatepicker]="picker1" [(ngModel)]="Oferta.ffinof" name="Fin">
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+          </mat-grid-tile>
+         </mat-grid-list>
+        </mat-card-content>
+      <mat-card-actions>
+        <button (click)="publicar()" >Crear</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+  

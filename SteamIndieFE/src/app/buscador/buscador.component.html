@@ -1,0 +1,35 @@
+<div class="div">
+    <mat-grid-list cols="10" rowHeight="50px" gutterSize="40px" style="background: rgb(137, 189, 77);">
+        <mat-grid-tile colspan="2">
+            <form (ngSubmit)="asignar()">
+                <mat-label>Buscar</mat-label>
+                <mat-icon matSuffix>search</mat-icon>
+                <mat-form-field *ngIf="tabSelected===0 || tabSelected===3" appearance="fill">
+                    <input matInput [(ngModel)]="Query" [ngModelOptions]="{standalone: true}">
+                </mat-form-field>
+                <mat-form-field  *ngIf="Select && (tabSelected===1 || tabSelected===2)"appearance="fill">
+                    {{Query}}
+                    <mat-select *ngIf="tipo===2" name="filtro">
+                        <mat-option *ngFor="let item of cats" (value)="item.nomCat"(click)="AgregarCat(item.nomCat)">
+                          {{item.nomCat}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-select *ngIf="tipo===3" multiple name="filtro">
+                        <mat-option *ngFor="let item of tags" (value)="item.nomTag" (click)="Agregar(item.nomTag)">
+                          {{item.nomTag}}
+                        </mat-option>
+                        {{Query}}
+                    </mat-select>
+                </mat-form-field>
+            </form>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="8">
+            <mat-tab-group class="item" mat-align-tabs="center" (selectedTabChange)="onTabChanged($event)">
+                <mat-tab *ngFor="let tab of asyncTabs | async">
+                    <ng-template mat-tab-label style="color: black">{{tab.label}}</ng-template>
+                </mat-tab>
+            </mat-tab-group>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <app-tienda [Juegos]="currentItems"></app-tienda>
+</div>

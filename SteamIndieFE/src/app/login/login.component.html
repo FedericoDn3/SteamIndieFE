@@ -1,0 +1,24 @@
+<h1>Bienvenido!!</h1>
+<form [formGroup]="USU">
+    <label>
+        Nickname:
+        <input type="text" formControlName="Usuario" />
+    </label>
+    <label>
+        Contraseña:
+        <input type="password" formControlName="Contrasenia" class="ng-untouched ng-pristine ng-valid"/>
+    </label>
+</form>
+<div>
+    <button class="btn btn-social-icon btn-google mx-1" (click)="signInWithGoogle()">
+        Ingresa con google
+    </button>
+</div>
+<div>
+    <button routerLink="/registro">
+        Registrate YA!!    
+    </button>
+    <button (click)="signIn()">
+        Log
+    </button>
+</div>

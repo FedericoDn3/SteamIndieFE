@@ -1,0 +1,64 @@
+<mat-card>
+    <mat-card-header>
+        <h1>Registrate!! ¡¡ES GRATIS!!</h1>
+    </mat-card-header>
+    <mat-card-content>
+        <form class="example-form">
+            <form action="/action_page.php">
+                <mat-label>Imagen</mat-label>
+                <input type="file" id="imagen" (change)="SetImagen($event)" name="imagen">
+            </form>
+            <iframe *ngIf="img" [src]="img" width="500" height="600"></iframe>
+            <mat-form-field class="example-full-width">
+                <mat-label>Nombre</mat-label>
+                <input matInput [(ngModel)]="USU.Nom" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Apellido</mat-label>
+                <input matInput [(ngModel)]="USU.Apell" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Nick</mat-label>
+                <input matInput [(ngModel)]="USU.Nick" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Correo</mat-label>
+                <input matInput [(ngModel)]="USU.Email" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <!-- <mat-label>Fecha</mat-label>
+                <input matInput [(ngModel)]="" [ngModelOptions]="{standalone: true}"> -->
+                <mat-label>Fecha de nacimiento</mat-label>
+                <input matInput [matDatepicker]="picker1" [(ngModel)]="USU.Fnac" [ngModelOptions]="{standalone: true}">
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-form-field appearance="fill">
+                    <mat-label>Sexo</mat-label>
+                    <mat-select [(value)]="USU.Sexo">
+                      <mat-option value="Masculino">Masculino</mat-option>
+                      <mat-option value="Femenino">Femenino</mat-option>
+                      <mat-option value="No binario">No binario</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Contraseña</mat-label>
+                <input matInput type="password" [(ngModel)]="USU.Pass" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Contraseña  nuevamente</mat-label>
+                <input matInput type="password" [(ngModel)]="USU.Pass2" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <div>
+            <section class="example-section">
+                <p><mat-checkbox [(ngModel)]="Vendedor" [ngModelOptions]="{standalone: true}" (change)="EsVendedor($event)">Es Vendedor</mat-checkbox></p>
+            </section>
+            <button (click)="Mandar()">Registrarse</button>
+        </div>
+    </mat-card-actions>
+</mat-card>

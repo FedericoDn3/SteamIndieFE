@@ -1,0 +1,10 @@
+mat-grid-list {
+    columns: 5;
+    width: 1880px;
+    background: rgb(206, 187, 103);
+}
+mat-grid-tile {
+    columns: 1;
+    background: rgb(153, 150, 150);
+    width: flex;
+}

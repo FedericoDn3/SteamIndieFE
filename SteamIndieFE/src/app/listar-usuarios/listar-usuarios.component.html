@@ -1,0 +1,24 @@
+<div class="div">
+  <mat-grid-list cols="10" rowHeight="50px" gutterSize="40px" style="background: rgb(137, 189, 77);">
+    <mat-grid-tile colspan="2">
+        <form (ngSubmit)="Buscar()">
+            <mat-label>Buscar</mat-label>
+            <mat-icon matSuffix>search</mat-icon>
+            <mat-form-field appearance="fill">
+              <input matInput [(ngModel)]="Query" [ngModelOptions]="{standalone: true}">
+              <input matInput [(ngModel)]="Query" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+        </form>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <mat-grid-list cols="5" rowHeight="380px" gutterSize="40px">
+      <mat-grid-tile  *ngFor="let Usuario of Usuarios" colspan="1">
+        <mat-grid-tile-header (click)="Perfil(Usuario)">
+          {{ Usuario.nick }}
+        </mat-grid-tile-header>
+        <mat-card-content>
+          <img mat-card-image style="max-width: 380px; max-height: 250px;" [src]="Usuario.Img">
+        </mat-card-content>
+      </mat-grid-tile>
+  </mat-grid-list>
+</div>

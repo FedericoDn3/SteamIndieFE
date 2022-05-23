@@ -1,0 +1,12 @@
+<div  *ngIf="Perfil" class="parent">
+    <mat-card style="max-width: 600px; min-width: 600px;">
+        <mat-card-header>
+            <h2 style="min-width: 500px;">Perfil de: {{Perfil.nick}}</h2>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+        <img mat-card-image style="max-width: 380px; max-height: 250px;" [src]="Perfil.Img">
+        <mat-card-content>
+        </mat-card-content>
+    </mat-card>
+    <app-estados [idPerfil]="Perfil.idUsu" ></app-estados>
+</div>

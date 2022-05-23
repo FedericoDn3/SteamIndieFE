@@ -1,0 +1,44 @@
+.item {
+    background: rgb(189, 77, 77);
+    columns: 1;
+    grid-row: 4;
+    column-gap: 30;
+  }
+  .card {
+    width: 300px;
+  }
+  
+  /* .p {
+    color: rgb(0, 0, 0);
+  } */
+  
+  .card-header {
+    background: rgb(103, 168, 206);
+  }
+  .card-body {
+    background: rgb(125, 207, 93);
+  }
+  mat-icon {
+    color: rgb(125, 207, 93);
+  }
+  /* .card-fotter {
+  } */
+  mat-grid-list {
+    columns: 5;
+    width: 1880px;
+    /* background: rgb(206, 187, 103); */
+  }
+  mat-grid-tile {
+      columns: 1;
+      background: rgb(153, 150, 150);
+      width: flex;
+    }
+  mat-card-content{
+      width: 300px;
+    }
+  img {
+    flex: 1 1 auto
+  }
+  .mat-grid-tile-footer {
+      justify-content: flex-end;
+  }

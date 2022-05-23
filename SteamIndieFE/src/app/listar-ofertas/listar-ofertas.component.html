@@ -1,0 +1,19 @@
+<div class="parent">
+    <mat-accordion>
+        <mat-expansion-panel hideToggle class="item" *ngFor="let Oferta of Ofertas">
+            <mat-expansion-panel-header class="item">
+            <mat-panel-title>
+                {{ Oferta.Nombre }}
+            </mat-panel-title>
+            <mat-panel-description>
+                desde {{Oferta.finiof}} hasta {{Oferta.ffinof}} descuento del {{Oferta.porentof}}
+            </mat-panel-description>
+            </mat-expansion-panel-header>
+            <mat-list role="list">
+                <mat-list-item role="listitem"  *ngFor="let Juego of Oferta.Juegos">
+                    <h3>{{ Juego.Nombre }}</h3>
+                </mat-list-item>
+            </mat-list>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>

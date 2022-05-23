@@ -1,0 +1,20 @@
+<mat-grid-list cols="5" rowHeight="380px" gutterSize="40px">
+  <mat-grid-tile colspan="1" *ngFor="let Juego of Juegos">
+    <mat-grid-tile-header (click)="Detalle(Juego)">
+      {{ Juego.nomjuego }}
+    </mat-grid-tile-header>
+    <mat-card-content>
+      <img mat-card-image style="max-width: 380px; min-height: 250px;" [src]="Juego.imagen">
+      <!-- <p style="color:black;">
+        {{ Juego.descripcion }}
+      </p> -->
+    </mat-card-content>
+    <mat-grid-tile-footer>
+      <!-- <span  *ngIf="!esColeccion" style="color:rgb(18, 173, 96);">$ {{ Juego.precio }}</span>
+      <button mat-icon-button color="primary" (click)="Comprar(Juego)">
+        <mat-icon *ngIf="!esColeccion">shopping_cart</mat-icon>
+        <mat-icon *ngIf="esColeccion">sports_esports</mat-icon>
+      </button> -->
+    </mat-grid-tile-footer>
+  </mat-grid-tile>
+</mat-grid-list>

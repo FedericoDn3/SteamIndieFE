@@ -1,0 +1,19 @@
+<mat-toolbar style="background: rgb(39, 250, 187);">
+  <!-- <button mat-icon-button>
+   <mat-icon>menu</mat-icon>
+ </button> -->
+ <span [routerLink]="['/']">SteamIndie</span>
+ <span class="example-spacer"></span>
+ <button mat-icon-button routerLink="/Tienda">
+   <mat-icon>shopping_cart</mat-icon>
+ </button>
+ <button mat-button [matMenuTriggerFor]="menu">
+  <mat-icon>account_circle</mat-icon>
+ </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>Perfil</button>
+    <button mat-menu-item>cerrar sesion</button>
+  </mat-menu>
+ <button mat-icon-button routerLink="/PerfilComponent">
+  <mat-icon>account_circle</mat-icon>
+</button>

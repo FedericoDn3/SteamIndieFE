@@ -1,0 +1,4 @@
+<app-nueva-oferta *ngIf="Roll ==='Admin'"></app-nueva-oferta>
+<app-habilitar-ofertas *ngIf="Roll ==='Vendedor'"></app-habilitar-ofertas>
+<app-tienda *ngIf="Roll ==='Usuario'" [Juegos]="currentItems"></app-tienda>
+<!-- <app-listar-ofertas></app-listar-ofertas> -->

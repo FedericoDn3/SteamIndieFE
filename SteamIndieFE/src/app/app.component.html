@@ -1,0 +1,30 @@
+<mat-toolbar style="background: rgb(39, 190, 250);">
+ <span [routerLink]="['/']">SteamIndie</span>
+ <span class="example-spacer"></span>
+ <button mat-icon-button routerLink="/Buscador">
+   <mat-icon>shopping_cart</mat-icon>
+ </button>
+ <button mat-button *ngIf="Logeado" routerLink="/ListarUsuarios">
+  <mat-icon>people</mat-icon>
+ </button>
+ <button mat-button [matMenuTriggerFor]="menu">
+  <mat-icon>account_circle</mat-icon>
+  <span *ngIf="Logeado">{{ data[3] }}</span>
+ </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item *ngIf="Logeado && Roll == 'Admin'"routerLink="/Reportes">Reportes</button>
+    <button mat-menu-item *ngIf="Logeado && Roll == 'Vendedor'"routerLink="/PublicarJuego">Publicar Juego</button>
+    <button mat-menu-item *ngIf="Logeado"routerLink="/PerfilComponent">Perfil</button>
+    <button mat-menu-item *ngIf="Logeado"routerLink="/Coleccion">Coleccion</button>
+    <button mat-menu-item *ngIf="Logeado" (click)="tabla">Tabla</button>
+    <button mat-menu-item *ngIf="Logeado" (click)="Reportes">Comun</button>
+    <button mat-menu-item *ngIf="Logeado"routerLink="/Ofertas">Ofertas</button>
+    <button mat-menu-item *ngIf="Logeado" (click)="CerrarSecion()">Cerrar sesion</button>
+    <button mat-menu-item *ngIf="!Logeado" routerLink="/Login">Iniciar sesion</button>
+  </mat-menu>
+</mat-toolbar>
+<!-- <app-top-bar ></app-top-bar> -->
+<div class="container" style="background: rgb(241, 243, 210);" fxLayout="column" fxFlex>
+  <router-outlet (newItemEvent)="GetLogeado()"></router-outlet>
+  <!-- <router-outlet></router-outlet> -->
+</div>

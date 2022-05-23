@@ -1,0 +1,13 @@
+<div class="parent">
+    <mat-card style="max-width: 600px; min-width: 600px;" *ngFor="let estado of estados">
+        <mat-card-header>
+            <h3 style="min-width: 500px;">{{ estado.fpub }}</h3>
+            <mat-icon >priority_high</mat-icon>
+        </mat-card-header>
+        <img mat-card-image style="max-width: 380px; max-height: 250px;" [src]="estado.imagen">
+        <!-- {{ estado.imagen }} -->
+        <mat-card-content>
+            {{ estado.comentario }}
+        </mat-card-content>
+    </mat-card>
+</div>

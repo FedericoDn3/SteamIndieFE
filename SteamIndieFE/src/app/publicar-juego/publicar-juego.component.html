@@ -1,0 +1,100 @@
+<form class="parent">
+  <mat-card style="min-width: 900px;">
+    <mat-card-header>
+      <h1>Publica tu juego con nosotros!!</h1>
+    </mat-card-header>
+    <mat-card-content>
+    <mat-divider></mat-divider>
+    <mat-grid-list cols="1" rowHeight="100px">
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-form-field appearance="fill">
+          <mat-label>Nombre</mat-label>
+          <input matInput [(ngModel)]="Juego.nomjuego" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-list cols="2" rowHeight="100px">
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-form-field appearance="fill">
+          <mat-label>Precio</mat-label>
+          <input matInput type="number" [(ngModel)]="Juego.precio" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-form-field appearance="fill">
+          <mat-label>URL</mat-label>
+          <input matInput type="url" [(ngModel)]="Juego.url" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-list cols="2" rowHeight="100px">
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <div>
+            <mat-label>Categoria</mat-label>
+            <mat-form-field appearance="fill">
+              {{Juego.categoria}}
+              <mat-select [(ngModel)]="Juego.categoria" [ngModelOptions]="{standalone: true}">
+                  <mat-option *ngFor="let categoria of categorias" (value)="categoria" (click)="AgregarCat(categoria.nomCat)">
+                    {{categoria.nomCat}}
+                  </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Tags</mat-label>
+              <mat-select placeholder="tags" [(ngModel)]="Juego.tags" multiple [ngModelOptions]="{standalone: true}">
+                  <mat-option *ngFor="let tag of tags" (value)="tag.NomTag" (click)="Agregar(tag.nomTag)">
+                    {{tag.nomTag}}
+                  </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-list cols="2" rowHeight="100px">
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <form action="/action_page.php">
+          <mat-label>Imagen</mat-label>
+          <input type="file" id="imagen" (change)="SetImagen($event)" name="imagen">
+      </form>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-form-field>
+          <mat-label>Link del Video</mat-label>
+          <input matInput type="text" (change)="SetVideo()" name="Video" [(ngModel)]="Juego.video">
+        </mat-form-field>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-list *ngIf="imagen || Video" cols="2" rowHeight="400px">
+      <mat-grid-tile *ngIf="imagen" [colspan]="1" [rowspan]="1">
+        <iframe *ngIf="imagen" [src]="imagen" width="500" height="400"></iframe>
+      </mat-grid-tile>
+      <mat-grid-tile *ngIf="Video" [colspan]="1" [rowspan]="1">
+          <iframe *ngIf="Video" width="560" height="315" [src]="Video" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-list cols="2" rowHeight="300px">
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <mat-form-field appearance="fill">
+        <mat-label>Requisitos</mat-label>
+          <textarea matInput style="max-width: 280px; min-height: 250px;" [(ngModel)]="Juego.requisitos"[ngModelOptions]="{standalone: true}"></textarea>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <div style="max-width: fit-content;">
+          <mat-form-field appearance="fill">
+            <mat-label>Descripcion</mat-label>
+            <textarea matInput style="max-width: 280px; min-height: 250px;" [(ngModel)]="Juego.descripcion"[ngModelOptions]="{standalone: true}"></textarea>
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+    </mat-card-content>
+    <mat-card-actions>
+      <button (click)="Crear()" >Crear</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

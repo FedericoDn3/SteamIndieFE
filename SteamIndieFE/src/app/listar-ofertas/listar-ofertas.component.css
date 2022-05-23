@@ -1,0 +1,30 @@
+.parent {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    /* background: rgb(39, 190, 250); */
+    min-width: 700px;
+}
+.item {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    background: rgb(149, 243, 192);
+    min-width: 700px;
+    max-width: 700px;
+}
+.example-form {
+    min-width: 300px;
+    max-width: 700px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }

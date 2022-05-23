@@ -1,0 +1,32 @@
+<div class="parent">
+    <mat-card *ngIf="propio" style="max-width: 600px; min-width: 600px;">
+        <mat-card-header>
+            <h1>¿Que hay de nuevo viejo?</h1>
+        </mat-card-header>
+        <mat-card-content>
+            <form action="/action_page.php">
+                <mat-label>Imagen</mat-label>
+                <input type="file" id="imgestado" (change)="SetImagen($event)" name="imgestado">
+                <iframe *ngIf="imgestado" [src]="imgestado" width="380" height="250"></iframe>
+            </form>
+            <mat-form-field appearance="fill" style="min-width: 400px; max-height: 250px;">
+                <mat-label>Comentario</mat-label>
+                <textarea matInput style="min-width: 400px; min-height: 250px;" [(ngModel)]="Estado.comestado" [ngModelOptions]="{standalone: true}"></textarea>
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+            <button (click)="publicar()">Publicar</button>
+        </mat-card-actions>
+    </mat-card>
+    <mat-card style="max-width: 600px; min-width: 600px;" *ngFor="let estado of estados">
+        <mat-card-header>
+            <mat-card-subtitle>
+                {{ estado.festado }}
+            </mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image style="max-width: 380px; max-height: 250px;" [src]="estado.Imgestado">
+        <mat-card-content>
+            {{ estado.comestado }}
+        </mat-card-content>
+    </mat-card>
+</div>

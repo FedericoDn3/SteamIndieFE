@@ -1,0 +1,8 @@
+.item {
+    background: rgb(137, 189, 77);
+  }
+
+.div {
+    max-width: 1700px;
+    min-width: max-content;
+}
